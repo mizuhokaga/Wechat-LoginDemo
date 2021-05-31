@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "index/index",
+    "test/test"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2e8ee7",
+    "navigationBarTitleText": "我签-WeSign",
+    "navigationBarTextStyle": "white"
+  },
+  
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "test/test",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/message_highlight.png",
+        "text": "消息通知"
+      },
+      {
+        "pagePath": "index/index",
+        "iconPath": "images/tabbar/user.png",
+        "selectedIconPath": "images/tabbar/user_highlight.png",
+        "text": "个人中心"
+      }
+    ]
+  }
+}

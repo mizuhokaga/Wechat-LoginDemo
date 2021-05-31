@@ -1,0 +1,88 @@
+<!-- userIndex.html -->
+<view class="container">
+  <!-- 加载动画 -->
+  <view wx:if="{{remind}}">
+    <!-- 使用mode属性来控制gif -->
+    <image class="loading" mode="widthFix" src="/images/userIndex/loading.gif"></image>
+  </view>
+
+  <view wx:else>
+    <image class="title" mode="widthFix" src="/images/userIndex/title.png"></image>
+    <view class="content">
+      <!-- 头像和波浪gif -->
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+        <image class="logo" src="/images/userIndex/logo1.png"></image>
+        <image class="wave" src="/images/userIndex/wave.png" mode="aspectFill"></image>
+        <image class="wave wave-bg" src="/images/userIndex/wave.png" mode="aspectFill"></image>
+      </view>
+      <!-- 波浪下的功能卡表 -->
+      <view class="bd">
+        <view class="login-form">
+          <view class="card-group" bindtap="getMyInfo">
+            <view class="card-title">🍀个人资料</view>
+          </view>
+          <view class="card-group">
+            <view class="card-title">🌻更新日志</view>
+          </view>
+          <view class="card-group" bindtap="showAbout" id="about">
+            <view class="card-title" >🌰关于我们</view>
+          </view>
+
+          <view class="login-help" bindtap="showHelp">
+            <text>帮助</text>
+            <image class="login-help-img" src="/images/userIndex/help.png"></image>
+          </view>
+        </view>
+        
+        <!-- 授权按钮 -->
+        <button wx:if="{{!isLogin}}" class="confirm-btn" bindgetuserinfo="onLogin" open-type="getUserInfo" lang="zh_CN">
+          授权登录
+        </button>
+
+      </view>
+      <!-- 帮助弹窗 -->
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/images/userIndex/close.png" bindtap="hideHelp"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、为什么我要授权？</view>
+            <view class="help-a">
+              <text>微信的部分接口需要经过用户授权同意才能调用。</text>
+              <text>这些接口按使用范围分成多个scope。</text>
+              <text>用户选择对 scope 来进行授权，当授权给一个 scope 之后，其对应的所有接口都可以直接使用。</text>
+            </view>
+            <view class="help-q">2、怎么打开设置界面？</view>
+            <view class="help-a">
+              <text>「右上角」 - 「关于」 - 「右上角」 - 「设置」进行操作</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="hr">
+      </view>
+
+      <!-- 关于我们弹窗 -->
+      <view class="help"  wx:if="{{about_status}}" >
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/images/userIndex/close.png" bindtap="hideAbout"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、谁开发了这个小程序？</view>
+            <view class="help-a">
+              <text>该页面来自We重邮</text>
+            </view>
+            <view class="help-q">2、怎么联系我们？</view>
+            <view class="help-a">
+              <text>mizuhokaga@gmail.com</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
